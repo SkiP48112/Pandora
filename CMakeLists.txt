@@ -25,7 +25,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${FullOutputDir}")
 include(Dependencies.cmake)
 
 # Projects
-add_subdirectory(core)
+add_subdirectory(pandora)
 add_subdirectory(sandbox)
 
 # Startup project

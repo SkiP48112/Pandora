@@ -1,5 +1,5 @@
 #
-# core
+# pandora
 #
 
 set(SOURCES
@@ -23,20 +23,18 @@ set(SOURCES
 	vendor/imgui/imstb_truetype.h
 )
 
-add_library(core STATIC)
+add_library(pandora SHARED)
 
-target_sources(core PRIVATE ${SOURCES})
+target_sources(pandora PRIVATE ${SOURCES})
 
 # Match VS filters to directory structure on disk
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SOURCES})
 
-add_compile_definitions(
-	GLFW_INCLUDE_NONE
-)
+target_compile_definitions(pandora PUBLIC GLFW_INCLUDE_NONE)
 
-target_link_libraries(core glfw)
-target_link_libraries(core glad)
-target_link_libraries(core glm)
+target_link_libraries(pandora glfw)
+target_link_libraries(pandora glad)
+target_link_libraries(pandora glm)
 
-target_include_directories(core PUBLIC src)
-target_include_directories(core PUBLIC vendor)
+target_include_directories(pandora PUBLIC src)
+target_include_directories(pandora PUBLIC vendor)

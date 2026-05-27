@@ -13,11 +13,9 @@ target_sources(sandbox PRIVATE ${SOURCES})
 # Match VS filters to directory structure on disk
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SOURCES})
 
-add_compile_definitions(
-    GLFW_INCLUDE_NONE
-)
+target_compile_definitions(sandbox PRIVATE GLFW_INCLUDE_NONE)
 
-target_link_libraries(sandbox core)
+target_link_libraries(sandbox pandora)
 
 target_include_directories(sandbox PRIVATE src)
 
