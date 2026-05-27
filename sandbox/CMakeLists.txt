@@ -3,7 +3,7 @@
 #
 
 set(SOURCES
-    src/main.cpp
+    src/sandbox.cpp
 )
 
 add_executable(sandbox)

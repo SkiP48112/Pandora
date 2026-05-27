@@ -24,6 +24,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${FullOutputDir}")
 # Dependencies
 include(Dependencies.cmake)
 
+if(WIN32)
+	add_compile_definitions(PANDORA_WINDOWS)
+endif()
+
 # Projects
 add_subdirectory(pandora)
 add_subdirectory(sandbox)

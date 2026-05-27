@@ -21,6 +21,11 @@ set(SOURCES
 	vendor/imgui/imstb_rectpack.h
 	vendor/imgui/imstb_textedit.h
 	vendor/imgui/imstb_truetype.h
+	src/pandora.h
+	src/core/core.h
+	src/core/application.h
+	src/core/application.cpp
+	src/core/entry_point.h
 )
 
 add_library(pandora SHARED)
@@ -30,7 +35,8 @@ target_sources(pandora PRIVATE ${SOURCES})
 # Match VS filters to directory structure on disk
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SOURCES})
 
-target_compile_definitions(pandora PUBLIC GLFW_INCLUDE_NONE)
+target_compile_definitions(pandora PUBLIC  GLFW_INCLUDE_NONE)
+target_compile_definitions(pandora PRIVATE PANDORA_BUILD_DLL)
 
 target_link_libraries(pandora glfw)
 target_link_libraries(pandora glad)
