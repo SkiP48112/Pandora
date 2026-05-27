@@ -1,6 +1,6 @@
 ﻿#include "pandora.h"
 
-class Sandbox : public Pandora::Core::Application
+class Sandbox : public Pandora::Application
 {
 public:
 	Sandbox()
@@ -12,7 +12,7 @@ public:
 	}
 };
 
-Pandora::Core::Application* Pandora::Core::CreateApplication() 
+Pandora::Application* Pandora::CreateApplication() 
 {
 	return new Sandbox();
 }

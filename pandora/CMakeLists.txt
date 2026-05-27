@@ -8,6 +8,8 @@ set(SOURCES
 	src/core/application.h
 	src/core/application.cpp
 	src/core/entry_point.h
+	src/core/log.h
+	src/core/log.cpp
 )
 
 add_library(pandora SHARED)

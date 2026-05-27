@@ -1,6 +1,6 @@
 ﻿#include "application.h"
 
-namespace Pandora::Core {
+namespace Pandora {
 
 	Application::Application()
 	{

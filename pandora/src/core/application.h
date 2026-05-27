@@ -2,7 +2,7 @@
 
 #include "core.h"
 
-namespace Pandora::Core {
+namespace Pandora {
 
 	class PANDORA_API Application
 	{
