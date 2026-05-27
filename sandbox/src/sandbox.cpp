@@ -12,7 +12,6 @@ public:
 	}
 };
 
-
 Pandora::Core::Application* Pandora::Core::CreateApplication() 
 {
 	return new Sandbox();

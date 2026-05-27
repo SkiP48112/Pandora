@@ -3,24 +3,6 @@
 #
 
 set(SOURCES
-	vendor/stb/stb_image.h
-	vendor/stb/stb_image.cpp
-	vendor/imgui/imconfig.h
-	vendor/imgui/imgui.h
-	vendor/imgui/imgui.cpp
-	vendor/imgui/imgui_demo.cpp
-	vendor/imgui/imgui_draw.cpp
-	vendor/imgui/imgui_impl_glfw.h
-	vendor/imgui/imgui_impl_glfw.cpp
-	vendor/imgui/imgui_impl_opengl3.h
-	vendor/imgui/imgui_impl_opengl3.cpp
-	vendor/imgui/imgui_impl_opengl3_loader.h
-	vendor/imgui/imgui_internal.h
-	vendor/imgui/imgui_tables.cpp
-	vendor/imgui/imgui_widgets.cpp
-	vendor/imgui/imstb_rectpack.h
-	vendor/imgui/imstb_textedit.h
-	vendor/imgui/imstb_truetype.h
 	src/pandora.h
 	src/core/core.h
 	src/core/application.h
@@ -41,6 +23,8 @@ target_compile_definitions(pandora PRIVATE PANDORA_BUILD_DLL)
 target_link_libraries(pandora glfw)
 target_link_libraries(pandora glad)
 target_link_libraries(pandora glm)
+target_link_libraries(pandora stb_image)
+target_link_libraries(pandora spdlog)
+target_link_libraries(pandora imgui)
 
 target_include_directories(pandora PUBLIC src)
-target_include_directories(pandora PUBLIC vendor)
