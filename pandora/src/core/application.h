@@ -10,7 +10,6 @@ namespace Pandora {
 		Application();
 		virtual ~Application();
 
-	public:
 		void Run();
 	};
 

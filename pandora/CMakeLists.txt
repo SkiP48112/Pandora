@@ -10,6 +10,11 @@ set(SOURCES
 	src/core/entry_point.h
 	src/core/log.h
 	src/core/log.cpp
+	src/events/event.h
+	src/events/mouse_event.h
+	src/events/key_event.h
+	src/events/application_event.h
+	src/events/window_event.h
 )
 
 add_library(pandora SHARED)

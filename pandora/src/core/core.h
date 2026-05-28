@@ -9,3 +9,5 @@
 #else
 	#error Pandora Engine does not yet support your platform
 #endif
+
+#define BIT(x) (x << 1)
