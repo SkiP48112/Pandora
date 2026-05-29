@@ -1,8 +1,5 @@
 ﻿#pragma once
 
-#include <string>
-#include <sstream>
-
 #include "core/core.h"
 
 namespace Pandora {

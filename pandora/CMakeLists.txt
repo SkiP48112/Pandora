@@ -4,6 +4,8 @@
 
 set(SOURCES
 	src/pandora.h
+	src/pandora_pch.h
+	src/pandora_pch.cpp
 	src/core/core.h
 	src/core/application.h
 	src/core/application.cpp
@@ -35,3 +37,6 @@ target_link_libraries(pandora spdlog)
 target_link_libraries(pandora imgui)
 
 target_include_directories(pandora PUBLIC src)
+target_precompile_headers(pandora PRIVATE 
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/pandora_pch.h"
+)

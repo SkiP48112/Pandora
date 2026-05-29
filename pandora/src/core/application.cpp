@@ -1,4 +1,5 @@
-﻿#include "application.h"
+﻿#include "pandora_pch.h"
+#include "application.h"
 
 namespace Pandora {
 
