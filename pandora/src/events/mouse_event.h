@@ -4,14 +4,14 @@
 
 namespace Pandora {
 
-	class PANDORA_API MouseButtonEventBase : public Event 
-	{
+	class PANDORA_API MouseButtonEventBase : public Event {
 		EVENT_CLASS_CATEGORY(EventCategory::MOUSE | EventCategory::MOUSE_BUTTON | EventCategory::INPUT)
 	
 	public:
 		inline int GetKeyCode() { return m_KeyCode; }
 
-		std::string ToString() const override {
+		std::string ToString() const override 
+		{
 			std::stringstream ss;
 			ss << GetName() << ": " << m_KeyCode;
 			return ss.str();
@@ -25,8 +25,7 @@ namespace Pandora {
 		int m_KeyCode;
 	};
 
-	class PANDORA_API MouseButtonPressedEvent : public MouseButtonEventBase
-	{
+	class PANDORA_API MouseButtonPressedEvent : public MouseButtonEventBase {
 		EVENT_CLASS_TYPE(MOUSE_BUTTON_PRESSED)
 	
 	public:
@@ -34,8 +33,7 @@ namespace Pandora {
 			: MouseButtonEventBase(keyCode) {}
 	};
 
-	class PANDORA_API MouseButtonReleasedEvent : public MouseButtonEventBase
-	{
+	class PANDORA_API MouseButtonReleasedEvent : public MouseButtonEventBase {
 		EVENT_CLASS_TYPE(MOUSE_BUTTON_RELEASED)
 
 	public:
@@ -43,8 +41,7 @@ namespace Pandora {
 			: MouseButtonEventBase(keyCode) {}
 	};
 
-	class PANDORA_API MouseMovedEvent : public Event
-	{
+	class PANDORA_API MouseMovedEvent : public Event {
 		EVENT_CLASS_TYPE(MOUSE_MOVED)
 		EVENT_CLASS_CATEGORY(EventCategory::MOUSE | EventCategory::INPUT)
 
@@ -55,7 +52,8 @@ namespace Pandora {
 		inline int GetX() const { return m_MouseX; }
 		inline int GetY() const { return m_MouseY; }
 
-		std::string ToString() const {
+		std::string ToString() const 
+		{
 			std::stringstream ss;
 			ss << GetName() << ": (" << m_MouseX << ":" << m_MouseY << ")";
 			return ss.str();
@@ -66,10 +64,9 @@ namespace Pandora {
 		int m_MouseY;
 	};
 
-	class PANDORA_API MouseScrolledEvent : public Event
-	{
+	class PANDORA_API MouseScrolledEvent : public Event {
 		EVENT_CLASS_TYPE(MOUSE_SCROLLED)
-			EVENT_CLASS_CATEGORY(EventCategory::MOUSE | EventCategory::INPUT)
+		EVENT_CLASS_CATEGORY(EventCategory::MOUSE | EventCategory::INPUT)
 
 	public:
 		MouseScrolledEvent(int offsetX, int offsetY)
@@ -78,7 +75,8 @@ namespace Pandora {
 		inline int GetOffsetX() const { return m_OffsetX; }
 		inline int GetOffsetY() const { return m_OffsetY; }
 
-		std::string ToString() const {
+		std::string ToString() const 
+		{
 			std::stringstream ss;
 			ss << GetName() << ": (" << m_OffsetX << ":" << m_OffsetY << ")";
 			return ss.str();

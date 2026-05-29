@@ -7,8 +7,7 @@ namespace Pandora {
 
 
 	// NOTE: When we add API macro on the class we get dll-interface warnings
-	class Log
-	{
+	class Log {
 	public:
 		static PANDORA_API void Init();
 

@@ -4,8 +4,7 @@
 
 namespace Pandora {
 
-	class PANDORA_API KeyEventBase : public Event 
-	{
+	class PANDORA_API KeyEventBase : public Event {
 		EVENT_CLASS_CATEGORY(EventCategory::KEYBOARD | EventCategory::INPUT)
 
 	public:
@@ -19,8 +18,7 @@ namespace Pandora {
 		int m_KeyCode;
 	};
 
-	class PANDORA_API KeyPressedEvent : public KeyEventBase
-	{
+	class PANDORA_API KeyPressedEvent : public KeyEventBase {
 		EVENT_CLASS_TYPE(KEY_PRESSED)
 
 	public:
@@ -29,7 +27,8 @@ namespace Pandora {
 
 		inline int GetRepeatCount() const { return m_RepeatCount; }
 
-		std::string ToString() const override {
+		std::string ToString() const override 
+		{
 			std::stringstream ss;
 			ss << GetName() << ": " << m_KeyCode << " (" << m_RepeatCount << " repeats)";
 			return ss.str();
@@ -39,15 +38,15 @@ namespace Pandora {
 		int m_RepeatCount;
 	};
 
-	class PANDORA_API KeyReleasedEvent : public KeyEventBase 
-	{
+	class PANDORA_API KeyReleasedEvent : public KeyEventBase {
 		EVENT_CLASS_TYPE(KEY_RELEASED)
 
 	public:
 		KeyReleasedEvent(int keyCode)
 			: KeyEventBase(keyCode) {}
 
-		std::string ToString() const override {
+		std::string ToString() const override 
+		{
 			std::stringstream ss;
 			ss << GetName() << ": " << m_KeyCode;
 			return ss.str();

@@ -4,8 +4,7 @@
 
 namespace Pandora {
 
-	class PANDORA_API AppTickEvent : public Event
-	{
+	class PANDORA_API AppTickEvent : public Event {
 		EVENT_CLASS_TYPE(APP_TICK)
 		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION)
 
@@ -13,8 +12,7 @@ namespace Pandora {
 		AppTickEvent() = default;
 	};
 
-	class PANDORA_API AppRenderEvent : public Event
-	{
+	class PANDORA_API AppRenderEvent : public Event {
 		EVENT_CLASS_TYPE(APP_RENDER)
 		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION)
 
@@ -22,8 +20,7 @@ namespace Pandora {
 		AppRenderEvent() = default;
 	};
 
-	class PANDORA_API AppUpdateEvent : public Event
-	{
+	class PANDORA_API AppUpdateEvent : public Event {
 		EVENT_CLASS_TYPE(APP_UPDATE)
 		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION)
 

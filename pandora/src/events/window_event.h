@@ -4,8 +4,7 @@
 
 namespace Pandora {
 
-	class PANDORA_API WindowCloseEvent : public Event 
-	{
+	class PANDORA_API WindowCloseEvent : public Event {
 		EVENT_CLASS_TYPE(WINDOW_CLOSE)
 		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION)
 
@@ -13,8 +12,7 @@ namespace Pandora {
 		WindowCloseEvent() = default;
 	};
 
-	class PANDORA_API WindowFocusEvent : public Event
-	{
+	class PANDORA_API WindowFocusEvent : public Event {
 		EVENT_CLASS_TYPE(WINDOW_FOCUS)
 		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION)
 
@@ -22,8 +20,7 @@ namespace Pandora {
 		WindowFocusEvent() = default;
 	};
 
-	class PANDORA_API WindowLostFocusEvent : public Event
-	{
+	class PANDORA_API WindowLostFocusEvent : public Event {
 		EVENT_CLASS_TYPE(WINDOW_LOST_FOCUS)
 		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION)
 
@@ -31,8 +28,7 @@ namespace Pandora {
 		WindowLostFocusEvent() = default;
 	};
 
-	class PANDORA_API WindowResizeEvent : public Event
-	{
+	class PANDORA_API WindowResizeEvent : public Event {
 		EVENT_CLASS_TYPE(WINDOW_RESIZE)
 		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION)
 
@@ -43,7 +39,8 @@ namespace Pandora {
 		inline unsigned int GetWidth() const { return m_Width; }
 		inline unsigned int GetHeight() const { return m_Height; }
 
-		std::string ToString() const override {
+		std::string ToString() const override 
+		{
 			std::stringstream ss;
 			ss << GetName() << ": (" << m_Width << ":" << m_Height << ")";
 			return ss.str();
@@ -54,8 +51,7 @@ namespace Pandora {
 		unsigned int m_Height;
 	};
 
-	class PANDORA_API WindowMovedEvent : public Event
-	{
+	class PANDORA_API WindowMovedEvent : public Event {
 		EVENT_CLASS_TYPE(WINDOW_MOVED)
 		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION)
 
@@ -66,7 +62,8 @@ namespace Pandora {
 		inline int GetX() const { return m_PositionX; }
 		inline int GetY() const { return m_PositionY; }
 
-		std::string ToString() const override {
+		std::string ToString() const override 
+		{
 			std::stringstream ss;
 			ss << GetName() << ": (" << m_PositionX << ":" << m_PositionY << ")";
 			return ss.str();

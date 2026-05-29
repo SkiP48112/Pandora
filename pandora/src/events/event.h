@@ -4,8 +4,7 @@
 
 namespace Pandora {
 
-	enum class EventType 
-	{
+	enum class EventType {
 		NONE = 0,
 		KEY_PRESSED, KEY_RELEASED,
 		MOUSE_BUTTON_PRESSED, MOUSE_BUTTON_RELEASED, MOUSE_MOVED, MOUSE_SCROLLED,
@@ -13,8 +12,7 @@ namespace Pandora {
 		APP_TICK, APP_RENDER, APP_UPDATE
 	};
 
-	enum EventCategory
-	{
+	enum EventCategory {
 		NONE			= 0,
 		KEYBOARD		= BIT(0),
 		MOUSE			= BIT(1),
@@ -33,8 +31,7 @@ namespace Pandora {
 		public:																		\
 			virtual int GetCategoryFlags() const override { return category; }
 
-	class PANDORA_API Event 
-	{
+	class PANDORA_API Event {
 	public:
 		~Event() = default;
 
@@ -43,7 +40,8 @@ namespace Pandora {
 		virtual const char* GetName() const = 0;
 		virtual std::string ToString() const { return GetName(); }
 
-		inline bool IsInCategory(int category) {
+		inline bool IsInCategory(int category) 
+		{
 			return GetCategoryFlags() & category;
 		}
 
@@ -51,14 +49,14 @@ namespace Pandora {
 		bool IsHandled = false;
 	};
 
-	class EventDispatcher
-	{
+	class EventDispatcher {
 	public:
 		EventDispatcher(Event& event)
 			: m_Event(event) {}
 
 		template<typename T, typename F>
-		bool Dispatch(const F& func) {
+		bool Dispatch(const F& func) 
+		{
 			if (m_Event.GetType() == T::GetStaticType()) {
 				m_Event.IsHandled = func(static_cast<T&>(m_Event));
 				return true;
@@ -71,7 +69,8 @@ namespace Pandora {
 		Event& m_Event;
 	};
 
-	inline std::string format_as(const Event& e) {
+	inline std::string format_as(const Event& e) 
+	{
 		return e.ToString();
 	}
 }

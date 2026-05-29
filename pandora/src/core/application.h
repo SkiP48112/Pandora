@@ -4,8 +4,7 @@
 
 namespace Pandora {
 
-	class PANDORA_API Application
-	{
+	class PANDORA_API Application {
 	public:
 		Application();
 		virtual ~Application();
