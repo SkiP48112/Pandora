@@ -69,6 +69,8 @@ namespace Pandora {
 		Event& m_Event;
 	};
 
+	using EventCallbackFn = std::function<void(Event&)>;
+
 	inline std::string format_as(const Event& e) 
 	{
 		return e.ToString();
