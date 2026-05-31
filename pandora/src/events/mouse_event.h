@@ -46,11 +46,11 @@ namespace Pandora {
 		EVENT_CLASS_CATEGORY(EventCategory::MOUSE | EventCategory::INPUT)
 
 	public:
-		MouseMovedEvent(int mouseX, int mouseY)
+		MouseMovedEvent(float mouseX, float mouseY)
 			: m_MouseX(mouseX), m_MouseY(mouseY) {}
 
-		inline int GetX() const { return m_MouseX; }
-		inline int GetY() const { return m_MouseY; }
+		inline float GetX() const { return m_MouseX; }
+		inline float GetY() const { return m_MouseY; }
 
 		std::string ToString() const 
 		{
@@ -60,8 +60,8 @@ namespace Pandora {
 		}
 
 	private:
-		int m_MouseX;
-		int m_MouseY;
+		float m_MouseX;
+		float m_MouseY;
 	};
 
 	class PANDORA_API MouseScrolledEvent : public Event {
@@ -69,11 +69,11 @@ namespace Pandora {
 		EVENT_CLASS_CATEGORY(EventCategory::MOUSE | EventCategory::INPUT)
 
 	public:
-		MouseScrolledEvent(int offsetX, int offsetY)
+		MouseScrolledEvent(float offsetX, float offsetY)
 			: m_OffsetX(offsetX), m_OffsetY(offsetY) {}
 
-		inline int GetOffsetX() const { return m_OffsetX; }
-		inline int GetOffsetY() const { return m_OffsetY; }
+		inline float GetOffsetX() const { return m_OffsetX; }
+		inline float GetOffsetY() const { return m_OffsetY; }
 
 		std::string ToString() const 
 		{
@@ -83,8 +83,8 @@ namespace Pandora {
 		}
 
 	private:
-		int m_OffsetX;
-		int m_OffsetY;
+		float m_OffsetX;
+		float m_OffsetY;
 	};
 
 }

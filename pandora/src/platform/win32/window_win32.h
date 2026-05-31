@@ -31,6 +31,7 @@ namespace Pandora {
 	private:
 		virtual void Init(const WindowProps& props);
 		virtual void Terminate();
+		virtual void SetGLFWCallbacks();
 
 	private:
 		GLFWwindow* m_Window;

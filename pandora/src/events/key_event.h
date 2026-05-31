@@ -22,20 +22,24 @@ namespace Pandora {
 		EVENT_CLASS_TYPE(KEY_PRESSED)
 
 	public:
-		KeyPressedEvent(int keyCode, int repeatCount)
-			: KeyEventBase(keyCode), m_RepeatCount(repeatCount) {}
+		KeyPressedEvent(int keyCode, bool isRepeated)
+			: KeyEventBase(keyCode), m_IsRepeated(isRepeated) {}
 
-		inline int GetRepeatCount() const { return m_RepeatCount; }
+		inline bool IsRepeated() const { return m_IsRepeated; }
 
 		std::string ToString() const override 
 		{
 			std::stringstream ss;
-			ss << GetName() << ": " << m_KeyCode << " (" << m_RepeatCount << " repeats)";
+			ss << GetName() << ": " << m_KeyCode << "";
+			if (IsRepeated()) {
+				ss << ": Repeated";
+			}
+
 			return ss.str();
 		}
 
 	private:
-		int m_RepeatCount;
+		bool m_IsRepeated;
 	};
 
 	class PANDORA_API KeyReleasedEvent : public KeyEventBase {
