@@ -3,6 +3,7 @@
 #include "core.h"
 #include "window.h"
 #include "events/window_event.h"
+#include "layer_stack.h"
 
 namespace Pandora {
 
@@ -14,11 +15,15 @@ namespace Pandora {
 		void Run();
 		void OnEvent(Event& e);
 
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* overlay);
+			
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
 	private:
 		std::unique_ptr<Window> m_Window;
+		LayerStack m_LayerStack;
 		bool m_IsRunning = true;
 	};
 

@@ -11,6 +11,10 @@ set(SOURCES
 	src/core/entry_point.h
 	src/core/log.h
 	src/core/log.cpp
+	src/core/layer.h
+	src/core/layer.cpp
+	src/core/layer_stack.h
+	src/core/layer_stack.cpp
 	src/core/window.h
 	src/events/event.h
 	src/events/mouse_event.h
