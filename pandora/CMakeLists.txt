@@ -21,6 +21,8 @@ set(SOURCES
 	src/events/key_event.h
 	src/events/application_event.h
 	src/events/window_event.h
+	src/imgui/imgui_layer.h
+	src/imgui/imgui_layer.cpp
 	src/platform/win32/window_win32.h
 	src/platform/win32/window_win32.cpp
 )

@@ -21,6 +21,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new SandboxLayer());
+		PushLayer(new Pandora::ImGuiLayer());
 	}
 
 	~Sandbox()

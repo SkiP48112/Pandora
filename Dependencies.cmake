@@ -99,10 +99,7 @@ set(IMGUI_SOURCES
 
 add_library(imgui STATIC ${IMGUI_SOURCES})
 
-target_include_directories(imgui PUBLIC 
-	"${imgui_SOURCE_DIR}" 
-	"${imfui_SOURCE_DIR}/backends"
-)
+target_include_directories(imgui PUBLIC "${imgui_SOURCE_DIR}")
 
 target_link_libraries(imgui PUBLIC
 	glfw

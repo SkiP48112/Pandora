@@ -14,6 +14,13 @@ namespace Pandora {
 		KeyEventBase(int keyCode)
 			: m_KeyCode(keyCode) {}
 
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << GetName() << ": " << m_KeyCode;
+			return ss.str();
+		}
+
 	protected:
 		int m_KeyCode;
 	};
@@ -48,13 +55,13 @@ namespace Pandora {
 	public:
 		KeyReleasedEvent(int keyCode)
 			: KeyEventBase(keyCode) {}
+	};
 
-		std::string ToString() const override 
-		{
-			std::stringstream ss;
-			ss << GetName() << ": " << m_KeyCode;
-			return ss.str();
-		}
+	class PANDORA_API KeyTypedEvent : public KeyEventBase {
+		EVENT_CLASS_TYPE(KEY_TYPED)
+	public:
+		KeyTypedEvent(int keyCode)
+			: KeyEventBase(keyCode) {}
 	};
 
 }

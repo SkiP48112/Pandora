@@ -19,3 +19,5 @@
 #endif
 
 #define BIT(x) (x << 1)
+
+#define PANDORA_BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)

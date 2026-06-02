@@ -4,29 +4,31 @@ namespace Pandora {
 
 	LayerStack::LayerStack() 
 	{
-		m_LayerIter = begin();
 	}
 
 	LayerStack::~LayerStack() 
 	{
 		for (Layer* layer : m_Layers) {
+			layer->OnDetach();
 			delete layer;
 		}
 	}
 
 	void LayerStack::PushLayer(Layer* layer) 
 	{
-		m_Layers.insert(m_LayerIter, layer);
+		m_Layers.emplace(begin() + m_LayerIndex, layer);
+		m_LayerIndex++;
+
 		layer->OnAttach();
 	}
 
 	void LayerStack::PopLayer(Layer* layer) 
 	{
-		auto it = std::find(m_Layers.begin(), m_Layers.end(), layer);
-		if (it != m_Layers.end()) {
+		auto it = std::find(begin(), begin() + m_LayerIndex, layer);
+		if (it != m_Layers.begin() + m_LayerIndex) {
 			layer->OnDetach();
 			m_Layers.erase(it);
-			m_LayerIter--;
+			m_LayerIndex--;
 		}
 	}
 
@@ -38,7 +40,7 @@ namespace Pandora {
 
 	void LayerStack::PopOverlay(Layer* overlay)
 	{
-		auto it = std::find(m_Layers.begin(), m_Layers.end(), overlay);
+		auto it = std::find(m_Layers.begin() + m_LayerIndex, m_Layers.end(), overlay);
 		if (it != m_Layers.end()) {
 			overlay->OnDetach();
 			m_Layers.erase(it);

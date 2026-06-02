@@ -21,6 +21,7 @@ namespace Pandora {
 
 		inline unsigned int GetWidth() const override { return m_Data.Width; }
 		inline unsigned int GetHeight() const override { return m_Data.Heigth; }
+		inline void* GetNativeWindow() const override { return m_Window; }
 		inline bool IsVSyncEnabled() const override { return m_Data.IsVSyncEnabled; }
 
 		inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
