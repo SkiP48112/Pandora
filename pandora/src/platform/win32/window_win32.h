@@ -1,10 +1,10 @@
 ﻿#pragma once
 
-#include <GLFW/glfw3.h>
+#include "GLFW/glfw3.h"
 #include "core/window.h"
 
 namespace Pandora {
-
+	
 	struct WindowDataWin32 {
 		std::string Title;
 		unsigned int Width;

@@ -1,6 +1,4 @@
-﻿#include "pandora_pch.h"
-
-#include "spdlog/sinks/stdout_color_sinks.h"
+﻿#include "spdlog/sinks/stdout_color_sinks.h"
 #include "log.h"
 
 namespace Pandora {

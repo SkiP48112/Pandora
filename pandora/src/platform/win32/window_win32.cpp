@@ -1,5 +1,6 @@
 ﻿#include "window_win32.h"
 
+#include "glad/gl.h"
 #include "events/application_event.h"
 #include "events/window_event.h"
 #include "events/mouse_event.h"
@@ -52,7 +53,7 @@ namespace Pandora {
 
 		if (!s_IsGLFWInitialized) {
 			int success = glfwInit();
-			PANDORA_CORE_ASSERT(success, "Can't initialize GLFW");
+			PANDORA_CORE_ASSERT(success, "Failed to initialize GLFW");
 			glfwSetErrorCallback(GLFWErrorCallback);
 
 			s_IsGLFWInitialized = true;
@@ -62,6 +63,9 @@ namespace Pandora {
 		glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		
+		int status = gladLoadGL(glfwGetProcAddress);
+		PANDORA_CORE_ASSERT(status, "Failed to initialize GLAD")
+
 		SetVSyncEnabled(true);
 		SetGLFWCallbacks();
 	}
