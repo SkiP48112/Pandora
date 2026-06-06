@@ -7,7 +7,6 @@ public:
 
 	void OnUpdate() override
 	{
-		PANDORA_INFO("{0}: OnUpdate", GetName());
 	}
 
 	void OnEvent(Pandora::Event& event) override

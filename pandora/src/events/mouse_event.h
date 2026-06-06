@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "event.h"
+#include "core/mouse_codes.h"
 
 namespace Pandora {
 
@@ -8,7 +9,7 @@ namespace Pandora {
 		EVENT_CLASS_CATEGORY(EventCategory::MOUSE | EventCategory::MOUSE_BUTTON | EventCategory::INPUT)
 	
 	public:
-		inline int GetKeyCode() { return m_KeyCode; }
+		inline MouseCode GetKeyCode() { return m_KeyCode; }
 
 		std::string ToString() const override 
 		{
@@ -18,18 +19,18 @@ namespace Pandora {
 		}
 
 	protected:
-		MouseButtonEventBase(int keyCode)
+		MouseButtonEventBase(MouseCode keyCode)
 			: m_KeyCode(keyCode) {}
 
 	protected:
-		int m_KeyCode;
+		MouseCode m_KeyCode;
 	};
 
 	class PANDORA_API MouseButtonPressedEvent : public MouseButtonEventBase {
 		EVENT_CLASS_TYPE(MOUSE_BUTTON_PRESSED)
 	
 	public:
-		MouseButtonPressedEvent(int keyCode)
+		MouseButtonPressedEvent(MouseCode keyCode)
 			: MouseButtonEventBase(keyCode) {}
 	};
 
@@ -37,7 +38,7 @@ namespace Pandora {
 		EVENT_CLASS_TYPE(MOUSE_BUTTON_RELEASED)
 
 	public:
-		MouseButtonReleasedEvent(int keyCode)
+		MouseButtonReleasedEvent(MouseCode keyCode)
 			: MouseButtonEventBase(keyCode) {}
 	};
 
@@ -46,7 +47,7 @@ namespace Pandora {
 		EVENT_CLASS_CATEGORY(EventCategory::MOUSE | EventCategory::INPUT)
 
 	public:
-		MouseMovedEvent(float mouseX, float mouseY)
+		MouseMovedEvent(const float mouseX, const float mouseY)
 			: m_MouseX(mouseX), m_MouseY(mouseY) {}
 
 		inline float GetX() const { return m_MouseX; }
@@ -69,7 +70,7 @@ namespace Pandora {
 		EVENT_CLASS_CATEGORY(EventCategory::MOUSE | EventCategory::INPUT)
 
 	public:
-		MouseScrolledEvent(float offsetX, float offsetY)
+		MouseScrolledEvent(const float offsetX, const float offsetY)
 			: m_OffsetX(offsetX), m_OffsetY(offsetY) {}
 
 		inline float GetOffsetX() const { return m_OffsetX; }

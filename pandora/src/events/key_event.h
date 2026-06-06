@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "event.h"
+#include "core/key_codes.h"
 
 namespace Pandora {
 
@@ -8,10 +9,10 @@ namespace Pandora {
 		EVENT_CLASS_CATEGORY(EventCategory::KEYBOARD | EventCategory::INPUT)
 
 	public:
-		inline int GetKeyCode() { return m_KeyCode; }
+		inline KeyCode GetKeyCode() { return m_KeyCode; }
 
 	protected:
-		KeyEventBase(int keyCode)
+		KeyEventBase(const KeyCode keyCode)
 			: m_KeyCode(keyCode) {}
 
 		std::string ToString() const override
@@ -22,14 +23,14 @@ namespace Pandora {
 		}
 
 	protected:
-		int m_KeyCode;
+		KeyCode m_KeyCode;
 	};
 
 	class PANDORA_API KeyPressedEvent : public KeyEventBase {
 		EVENT_CLASS_TYPE(KEY_PRESSED)
 
 	public:
-		KeyPressedEvent(int keyCode, bool isRepeated)
+		KeyPressedEvent(const KeyCode keyCode, bool isRepeated)
 			: KeyEventBase(keyCode), m_IsRepeated(isRepeated) {}
 
 		inline bool IsRepeated() const { return m_IsRepeated; }
@@ -53,14 +54,14 @@ namespace Pandora {
 		EVENT_CLASS_TYPE(KEY_RELEASED)
 
 	public:
-		KeyReleasedEvent(int keyCode)
+		KeyReleasedEvent(const KeyCode keyCode)
 			: KeyEventBase(keyCode) {}
 	};
 
 	class PANDORA_API KeyTypedEvent : public KeyEventBase {
 		EVENT_CLASS_TYPE(KEY_TYPED)
 	public:
-		KeyTypedEvent(int keyCode)
+		KeyTypedEvent(const KeyCode keyCode)
 			: KeyEventBase(keyCode) {}
 	};
 

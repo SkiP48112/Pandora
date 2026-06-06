@@ -16,6 +16,9 @@ set(SOURCES
 	src/core/layer_stack.h
 	src/core/layer_stack.cpp
 	src/core/window.h
+	src/core/input.h
+	src/core/key_codes.h
+	src/core/mouse_codes.h
 	src/events/event.h
 	src/events/mouse_event.h
 	src/events/key_event.h
@@ -25,6 +28,7 @@ set(SOURCES
 	src/imgui/imgui_layer.cpp
 	src/platform/win32/window_win32.h
 	src/platform/win32/window_win32.cpp
+	src/platform/win32/input_win32.cpp
 )
 
 add_library(pandora SHARED)
